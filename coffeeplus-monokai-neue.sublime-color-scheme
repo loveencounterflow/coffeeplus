@@ -13,23 +13,23 @@
 		},
 		{
 			"scope": "source.js",
-			"background": "#191900",
+			"background": "#262400",
 		},
 		{
 			"scope": "source.plpgsql.postgres",
-			"background": "#00021c",
+			"background": "#000026",
 		},
 		{
 			"scope": "source.pgsql",
-			"background": "#00021c",
+			"background": "#000026",
 		},
 		{
 			"scope": "source.sql",
-			"background": "#00021c",
+			"background": "#000026",
 		},
 		{
 			"scope": "source.coffee",
-			"background": "#20202d",
+			"background": "#252526",
 		},
 		{
 			"scope": "source.debug",
