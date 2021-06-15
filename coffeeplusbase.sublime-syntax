@@ -1,8 +1,8 @@
 %YAML 1.2
 ---
 # http://www.sublimetext.com/docs/syntax.html
-name: CoffeeScript
-comment: 'CoffeeScript Syntax: version 1'
+name: coffeeplusbase
+comment: 'coffeeplusbase Syntax: version 1'
 file_extensions:
   - coffee
   - Cakefile
@@ -10,103 +10,103 @@ file_extensions:
   - cson
   - cjsx
 first_line_match: ^#!.*\bcoffee
-scope: source.coffee
+scope: source.coffeeplusbase
 contexts:
   main:
     - match: '(\([^()]*?\))\s*([=-]>)'
       comment: 'match stuff like: a -> …'
-      scope: meta.inline.function.coffee
+      scope: meta.inline.function.coffeeplusbase
       captures:
-        1: variable.parameter.function.coffee
-        2: storage.type.function.coffee
+        1: variable.parameter.function.coffeeplusbase
+        2: storage.type.function.coffeeplusbase
     - match: (new)\s+((?!class)\w+(?:\.\w*)*)
       scope: meta.class.instance.constructor
       captures:
-        1: keyword.operator.new.coffee
-        2: support.class.coffee
+        1: keyword.operator.new.coffeeplusbase
+        2: support.class.coffeeplusbase
     - match: "'''"
       captures:
-        0: punctuation.definition.string.begin.coffee
+        0: punctuation.definition.string.begin.coffeeplusbase
       push:
-        - meta_scope: string.quoted.heredoc.coffee
+        - meta_scope: string.quoted.heredoc.coffeeplusbase
         - match: "'''"
           captures:
-            0: punctuation.definition.string.end.coffee
+            0: punctuation.definition.string.end.coffeeplusbase
           pop: true
     - match: '"""'
       captures:
-        0: punctuation.definition.string.begin.coffee
+        0: punctuation.definition.string.begin.coffeeplusbase
       push:
-        - meta_scope: string.quoted.double.heredoc.coffee
+        - meta_scope: string.quoted.double.heredoc.coffeeplusbase
         - match: '"""'
           captures:
-            0: punctuation.definition.string.end.coffee
+            0: punctuation.definition.string.end.coffeeplusbase
           pop: true
         - match: \\.
-          scope: constant.character.escape.coffee
-        - include: interpolated_coffee
+          scope: constant.character.escape.coffeeplusbase
+        - include: interpolated_coffeeplusbase
     - match: '`'
       captures:
-        0: punctuation.definition.string.begin.coffee
+        0: punctuation.definition.string.begin.coffeeplusbase
       push:
-        - meta_scope: string.quoted.script.coffee
+        - meta_scope: string.quoted.script.coffeeplusbase
         - match: '`'
           captures:
-            0: punctuation.definition.string.end.coffee
+            0: punctuation.definition.string.end.coffeeplusbase
           pop: true
         - match: '\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)'
-          scope: constant.character.escape.coffee
+          scope: constant.character.escape.coffeeplusbase
     - match: (?<!#)###(?!#)
       captures:
-        0: punctuation.definition.comment.coffee
+        0: punctuation.definition.comment.coffeeplusbase
       push:
-        - meta_scope: comment.block.coffee
+        - meta_scope: comment.block.coffeeplusbase
         - match: '###(?:[ \t]*\n)'
           captures:
-            0: punctuation.definition.comment.coffee
+            0: punctuation.definition.comment.coffeeplusbase
           pop: true
         - match: '@\w*'
-          scope: storage.type.annotation.coffeescript
+          scope: storage.type.annotation.coffeeplusbase
     - match: '(#)(?!\{).*$\n?'
-      scope: comment.line.number-sign.coffee
+      scope: comment.line.number-sign.coffeeplusbase
       captures:
-        1: punctuation.definition.comment.coffee
+        1: punctuation.definition.comment.coffeeplusbase
     - match: '/{3}'
       push:
-        - meta_scope: string.regexp.coffee
+        - meta_scope: string.regexp.coffeeplusbase
         - match: '/{3}[imgy]{0,4}'
           pop: true
-        - include: interpolated_coffee
+        - include: interpolated_coffeeplusbase
         - include: embedded_comment
     - match: '/(?![\s=/*+{}?])(\\.|.)*?/[igmy]{0,4}(?![a-zA-Z0-9])'
-      scope: string.regexp.coffee
+      scope: string.regexp.coffeeplusbase
     - match: |-
         (?x)
           \b(?<![\.\$])(
             break|by|catch|continue|else|finally|for|in|of|if|return|yield|switch|
             then|throw|try|unless|when|while|until|loop|do|(?<=for)\s+own
           )(?!\s*:)\b
-      scope: keyword.control.coffee
+      scope: keyword.control.coffeeplusbase
     - match: |-
         (?x)
           and=|or=|!|%|&|\^|\*|\/|(\-)?\-(?!>)|\+\+|\+|~|==|=(?!>)|!=|<=|>=|<<=|>>=|
           >>>=|<>|<|>|!|&&|\.\.(\.)?|\?|\||\|\||\:|\*=|(?<!\()/=|%=|\+=|\-=|&=|
           \^=|\b(?<![\.\$])(instanceof|new|delete|typeof|and|or|is|isnt|not|super)\b
-      scope: keyword.operator.coffee
+      scope: keyword.operator.coffeeplusbase
     - match: '([a-zA-Z\$_](\w|\$|\.)*\s*(?!\::)((:)|(=))(?!(\s*\(.*\))?\s*((=|-)>)))'
-      scope: variable.assignment.coffee
+      scope: variable.assignment.coffeeplusbase
       captures:
-        1: variable.assignment.coffee
+        1: variable.assignment.coffeeplusbase
         4: punctuation.separator.key-value
-        5: keyword.operator.coffee
+        5: keyword.operator.coffeeplusbase
     - match: '(?<=\s|^)([\[\{])(?=.*?[\]\}]\s+[:=])'
       captures:
-        0: keyword.operator.coffee
+        0: keyword.operator.coffeeplusbase
       push:
-        - meta_scope: meta.variable.assignment.destructured.coffee
+        - meta_scope: meta.variable.assignment.destructured.coffeeplusbase
         - match: '([\]\}]\s*[:=])'
           captures:
-            0: keyword.operator.coffee
+            0: keyword.operator.coffeeplusbase
           pop: true
         - include: variable_name
         - include: instance_variable
@@ -121,38 +121,38 @@ contexts:
             [a-zA-Z\$_@](\w|\$|:|\.)*\s*
             (?=[:=]( (\s*.\( ($)) | (\s*\(.*\) )?\s*([=-]>)))
           )
-      scope: meta.function.coffee
+      scope: meta.function.coffeeplusbase
       captures:
-        2: entity.name.function.coffee
-        3: entity.name.function.coffee
-        4: variable.parameter.function.coffee
-        5: storage.type.function.coffee
+        2: entity.name.function.coffeeplusbase
+        3: entity.name.function.coffeeplusbase
+        4: variable.parameter.function.coffeeplusbase
+        5: storage.type.function.coffeeplusbase
     - match: '^\s*(describe|it|app\.(get|post|put|all|del|delete))[^\w]'
       comment: Show well-known functions from Express and Mocha in Go To Symbol view
       push:
-        - meta_scope: meta.function.symbols.coffee
+        - meta_scope: meta.function.symbols.coffeeplusbase
         - match: $
           pop: true
         - include: main
     - match: '[=-]>'
-      scope: storage.type.function.coffee
+      scope: storage.type.function.coffeeplusbase
     - match: '\b(?<!\.)(true|on|yes)(?!\s*[:=])\b'
-      scope: constant.language.boolean.true.coffee
+      scope: constant.language.boolean.true.coffeeplusbase
     - match: '\b(?<!\.)(false|off|no)(?!\s*[:=])\b'
-      scope: constant.language.boolean.false.coffee
+      scope: constant.language.boolean.false.coffeeplusbase
     - match: '\b(?<!\.)null(?!\s*[:=])\b'
-      scope: constant.language.null.coffee
+      scope: constant.language.null.coffeeplusbase
     - match: '\b(?<!\.)(this|extends)(?!\s*[:=])\b'
-      scope: variable.language.coffee
+      scope: variable.language.coffeeplusbase
     - match: '(class\b)\s+((?!extends)@?[a-zA-Z\$_][\w\.]*)?(?:\s*(extends)\s+(@?[a-zA-Z\$\._][\w\.]*))?'
-      scope: meta.class.coffee
+      scope: meta.class.coffeeplusbase
       captures:
-        1: storage.type.class.coffee
-        2: entity.name.type.class.coffee
-        3: keyword.control.inheritance.coffee
-        4: entity.other.inherited-class.coffee
+        1: storage.type.class.coffeeplusbase
+        2: entity.name.type.class.coffeeplusbase
+        3: keyword.control.inheritance.coffeeplusbase
+        4: entity.other.inherited-class.coffeeplusbase
     - match: \b(debugger|\\)\b
-      scope: keyword.other.coffee
+      scope: keyword.other.coffeeplusbase
     - match: |-
         (?x)\b(
           Array|ArrayBuffer|Blob|Boolean|Date|document
@@ -161,14 +161,14 @@ contexts:
           Object|Proxy|RegExp|Set|String|WeakMap|
           window|Uint(8|16|32|64)Array|XMLHttpRequest|Symbol
         )\b
-      scope: support.class.coffee
+      scope: support.class.coffeeplusbase
     - match: ((?<=console\.)(debug|warn|info|log|error|time|timeEnd|assert))\b
-      scope: support.function.console.coffee
+      scope: support.function.console.coffeeplusbase
     - match: |-
         (?x)\b(
           decodeURI(Component)?|encodeURI(Component)?|eval|parse(Float|Int)|require
         )\b
-      scope: support.function.coffee
+      scope: support.function.coffeeplusbase
     - match: |-
         (?x)((?<=\.)(
           apply|call|concat|every|filter|forEach|from|hasOwnProperty|indexOf|
@@ -176,45 +176,45 @@ contexts:
           reduce(Right)?|reverse|shift|slice|some|sort|splice|to(Locale)?String|
           unshift|valueOf
         ))\b
-      scope: support.function.method.array.coffee
+      scope: support.function.method.array.coffeeplusbase
     - match: |-
         (?x)((?<=Array\.)(
           isArray
         ))\b
-      scope: support.function.static.array.coffee
+      scope: support.function.static.array.coffeeplusbase
     - match: |-
         (?x)((?<=Object\.)(
           create|definePropert(ies|y)|freeze|getOwnProperty(Descriptors?|Names)|
           getProperty(Descriptor|Names)|getPrototypeOf|is(Extensible|Frozen|Sealed)?|
           isnt|keys|preventExtensions|seal
         ))\b
-      scope: support.function.static.object.coffee
+      scope: support.function.static.object.coffeeplusbase
     - match: |-
         (?x)((?<=Math\.)(
           abs|acos|acosh|asin|asinh|atan|atan2|atanh|ceil|cos|cosh|exp|expm1|floor|
           hypot|log|log10|log1p|log2|max|min|pow|random|round|sign|sin|sinh|sqrt|
           tan|tanh|trunc
         ))\b
-      scope: support.function.static.math.coffee
+      scope: support.function.static.math.coffeeplusbase
     - match: |-
         (?x)((?<=Number\.)(
           is(Finite|Integer|NaN)|toInteger
         ))\b
-      scope: support.function.static.number.coffee
+      scope: support.function.static.number.coffeeplusbase
     - match: \b(Infinity|NaN|undefined)\b
-      scope: constant.language.coffee
+      scope: constant.language.coffeeplusbase
     - match: \;
-      scope: punctuation.terminator.statement.coffee
+      scope: punctuation.terminator.statement.coffeeplusbase
     - match: ',[ |\t]*'
-      scope: meta.delimiter.object.comma.coffee
+      scope: meta.delimiter.object.comma.coffeeplusbase
     - match: \.
-      scope: meta.delimiter.method.period.coffee
+      scope: meta.delimiter.method.period.coffeeplusbase
     - match: '\{|\}'
-      scope: meta.brace.curly.coffee
+      scope: meta.brace.curly.coffeeplusbase
     - match: \(|\)
-      scope: meta.brace.round.coffee
+      scope: meta.brace.round.coffeeplusbase
     - match: '\[|\]\s*'
-      scope: meta.brace.square.coffee
+      scope: meta.brace.square.coffeeplusbase
     - include: instance_variable
     - include: single_quoted_string
     - include: double_quoted_string
@@ -222,62 +222,62 @@ contexts:
   double_quoted_string:
     - match: '"'
       captures:
-        0: punctuation.definition.string.begin.coffee
+        0: punctuation.definition.string.begin.coffeeplusbase
       push:
-        - meta_scope: string.quoted.double.coffee
+        - meta_scope: string.quoted.double.coffeeplusbase
         - match: '"'
           captures:
-            0: punctuation.definition.string.end.coffee
+            0: punctuation.definition.string.end.coffeeplusbase
           pop: true
         - match: '\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)'
-          scope: constant.character.escape.coffee
-        - include: interpolated_coffee
+          scope: constant.character.escape.coffeeplusbase
+        - include: interpolated_coffeeplusbase
   embedded_comment:
     - match: (?<!\\)(#).*$\n?
-      scope: comment.line.number-sign.coffee
+      scope: comment.line.number-sign.coffeeplusbase
       captures:
-        1: punctuation.definition.comment.coffee
+        1: punctuation.definition.comment.coffeeplusbase
   instance_variable:
     - match: '(@)([a-zA-Z_\$]\w*)?'
-      scope: variable.other.readwrite.instance.coffee
-  interpolated_coffee:
+      scope: variable.other.readwrite.instance.coffeeplusbase
+  interpolated_coffeeplusbase:
     - match: '\#\{'
       captures:
-        0: punctuation.section.embedded.coffee
+        0: punctuation.section.embedded.coffeeplusbase
       push:
-        - meta_scope: source.coffee.embedded.source
+        - meta_scope: source.coffeeplusbase.embedded.source
         - match: '\}'
           captures:
-            0: punctuation.section.embedded.coffee
+            0: punctuation.section.embedded.coffeeplusbase
           pop: true
         - include: main
     - match: <%
       captures:
-        0: punctuation.section.embedded.coffee
+        0: punctuation.section.embedded.coffeeplusbase
       push:
-        - meta_scope: source.coffee.embedded.source
+        - meta_scope: source.coffeeplusbase.embedded.source
         - match: '%>'
           captures:
-            0: punctuation.section.embedded.coffee
+            0: punctuation.section.embedded.coffeeplusbase
           pop: true
         - include: main
   numeric:
     - match: '(?<!\$)\b((0([box])[0-9a-fA-F]+)|([0-9]+(\.[0-9]+)?(e[+\-]?[0-9]+)?))\b'
-      scope: constant.numeric.coffee
+      scope: constant.numeric.coffeeplusbase
   single_quoted_string:
     - match: "'"
       captures:
-        0: punctuation.definition.string.begin.coffee
+        0: punctuation.definition.string.begin.coffeeplusbase
       push:
-        - meta_scope: string.quoted.single.coffee
+        - meta_scope: string.quoted.single.coffeeplusbase
         - match: "'"
           captures:
-            0: punctuation.definition.string.end.coffee
+            0: punctuation.definition.string.end.coffeeplusbase
           pop: true
         - match: '\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)'
-          scope: constant.character.escape.coffee
+          scope: constant.character.escape.coffeeplusbase
   variable_name:
     - match: '([a-zA-Z\$_]\w*(\.\w+)*)'
-      scope: variable.assignment.coffee
+      scope: variable.assignment.coffeeplusbase
       captures:
-        1: variable.assignment.coffee
+        1: variable.assignment.coffeeplusbase
