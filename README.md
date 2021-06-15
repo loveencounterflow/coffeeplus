@@ -22,6 +22,9 @@ Literals](https://coffeescript.org/#tagged-template-literals) embedded in
 * adds embedded language syntax highlighting
 * for [Tagged Template Literals](https://coffeescript.org/#tagged-template-literals) embedded in
   [CoffeeScript](https://coffeescript.org) source
+* this is one motivation behind tagged template literals, after all: *Tagged templates should allow the
+  embedding of
+  languages*—[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 * recognized as an identifier directly in front of a string literal, as in `sql"select * from t;"` and
   `sql"""select * from t;"""`
 * case-insensitive prefix is recognized as language identifier
