@@ -45,6 +45,10 @@ Literals](https://coffeescript.org/#tagged-template-literals) embedded in
     return R
   ```
 
+  * The above function may be taken as a starting point to implement some interpolation functionality
+  * but it's even easier to just say `SQL = String.raw` as `string.raw()` provides exactly this
+    functionality
+
 ## Installation
 
 * no package / package control provided so far
