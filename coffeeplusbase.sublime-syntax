@@ -49,6 +49,51 @@ contexts:
           scope: constant.character.escape.coffeeplusbase
         # - include: interpolated_coffeeplusbase
         - include: main
+    - match: '```'
+      captures:
+        0: punctuation.definition.string.begin.coffeeplusbase
+      embed: scope:source.js
+      escape: '```'
+      push:
+        - meta_scope: string.quoted.double.heredoc.coffeeplusbase
+        - match: '```'
+          captures:
+            0: punctuation.definition.string.end.coffeeplusbase
+          pop: true
+        - match: \\.
+          scope: constant.character.escape.coffeeplusbase
+        # - include: interpolated_coffeeplusbase
+        - include: main
+    - match: '`'
+      captures:
+        0: punctuation.definition.string.begin.coffeeplusbase
+      embed: scope:source.js
+      escape: '`'
+      push:
+        - meta_scope: string.quoted.double.heredoc.coffeeplusbase
+        - match: '`'
+          captures:
+            0: punctuation.definition.string.end.coffeeplusbase
+          pop: true
+        - match: \\.
+          scope: constant.character.escape.coffeeplusbase
+        # - include: interpolated_coffeeplusbase
+        - include: main
+    - match: 'plpgsql"'
+      captures:
+        0: punctuation.definition.string.begin.coffeeplusbase
+      embed: scope:source.plpgsql.postgres
+      escape: '"'
+      push:
+        - meta_scope: string.quoted.double.heredoc.coffeeplusbase
+        - match: '"'
+          captures:
+            0: punctuation.definition.string.end.coffeeplusbase
+          pop: true
+        - match: \\.
+          scope: constant.character.escape.coffeeplusbase
+        # - include: interpolated_coffeeplusbase
+        - include: main
     - match: '(?<!pl)pgsql"""'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
@@ -92,17 +137,17 @@ contexts:
         - match: \\.
           scope: constant.character.escape.coffeeplusbase
         - include: interpolated_coffeeplusbase
-    - match: '`'
-      captures:
-        0: punctuation.definition.string.begin.coffeeplusbase
-      push:
-        - meta_scope: string.quoted.script.coffeeplusbase
-        - match: '`'
-          captures:
-            0: punctuation.definition.string.end.coffeeplusbase
-          pop: true
-        - match: '\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)'
-          scope: constant.character.escape.coffeeplusbase
+    # - match: '`'
+    #   captures:
+    #     0: punctuation.definition.string.begin.coffeeplusbase
+    #   push:
+    #     - meta_scope: string.quoted.script.coffeeplusbase
+    #     - match: '`'
+    #       captures:
+    #         0: punctuation.definition.string.end.coffeeplusbase
+    #       pop: true
+    #     - match: '\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)'
+    #       scope: constant.character.escape.coffeeplusbase
     - match: (?<!#)###(?!#)
       captures:
         0: punctuation.definition.comment.coffeeplusbase
