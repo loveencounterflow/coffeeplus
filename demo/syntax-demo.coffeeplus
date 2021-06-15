@@ -1,0 +1,56 @@
+
+'use strict'
+
+class X extends Foo
+  constructor: ->
+    return undefined
+f = ( a, b ) -> a * b
+
+
+sql"""
+select 'helo world';
+select count(*) over ( order by y ) from foo order by f( x );
+"""
+
+select count(*) over ( order by y ) from foo order by f( x );
+
+
+
+
+class X extends Foo
+  constructor: ->
+    return undefined
+f = ( a, b ) -> a * b
+
+
+pattern = /foo/
+pattern = /foo/u
+pattern = ///foo///
+pattern = ///foo///u
+
+#-----------------------------------------------------------------------------------------------------------
+sql"""
+select 'helo from sql' as greeting;
+"""
+
+select 'helo from sql' as greeting;
+sql"""select 'helo from sql' as greeting;"""
+
+
+#-----------------------------------------------------------------------------------------------------------
+d = "some coffeescript #{class X extends Foo} embedded in string on same line"
+
+#-----------------------------------------------------------------------------------------------------------
+log( `helo from JS` );
+```
+const javascript = true;
+```
+
+f = ( field_name ) ->
+  return sql"""select 42 as <var i=field_name>"""
+
+# <script>
+#   console.log( `helo` );
+#   const d = class X extends Array {};
+# </script>
+#
