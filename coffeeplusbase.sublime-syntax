@@ -170,7 +170,7 @@ contexts:
           pop: true
         - include: interpolated_coffeeplusbase
         - include: embedded_comment
-    - match: '/(?![\s=/*+{}?])(\\.|.)*?/[igmy]{0,4}(?![a-zA-Z0-9])'
+    - match: '/(?![\s=/*+{}?])(\\.|.)*?/[a-z]*(?![a-zA-Z0-9])'
       scope: string.regexp.coffeeplusbase
     - match: |-
         (?x)
