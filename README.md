@@ -33,8 +33,10 @@ Literals](https://coffeescript.org/#tagged-template-literals) embedded in
 * case-insensitivity intended to lower the chances of name clashes:
 
   ```coffee
-  sql = ( ... ) -> ...
+  # in case your variable is lower case and your templating function is in upper case:
   sql = SQL"select name, price from items order by price;"
+  # in case your variable is upper case and your templating function is in lower case:
+  SQL = sql"select name, price from items order by price;"
   ```
 
 * minimal tagged literal function:
