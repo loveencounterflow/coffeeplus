@@ -11,11 +11,29 @@ Literals](https://coffeescript.org/#tagged-template-literals) embedded in
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+- [What it Does](#what-it-does)
 - [Installation](#installation)
 - [To Do](#to-do)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## What it Does
+
+* adds embedded language syntax highlighting
+* for [Tagged Template Literals](https://coffeescript.org/#tagged-template-literals) embedded in
+  [CoffeeScript](https://coffeescript.org) source
+* recognized as an identifier directly in front of a string literal, as in `sql"select * from t;"` and
+  `sql"""select * from t;"""`
+* case-insensitive prefix is recognized as language identifier
+* easy to write a no-op function that returns the string as-is
+* or use an actual templating function that is appropriately named
+* case-insensitivity intended to lower the chances of name clashes:
+
+  ```coffee
+  sql = ( ... ) -> ...
+  sql = SQL"select name, price from items order by price;"
+
+  ```
 
 ## Installation
 
