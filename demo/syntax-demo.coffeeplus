@@ -53,8 +53,29 @@ create function f() returns text language plpgsql as $$
   $$;
 """
 
+
 #-----------------------------------------------------------------------------------------------------------
+sql"""select 'helo from sql' as greeting;"""
+Sql"""select 'helo from sql' as greeting;"""
+SQL"""select 'helo from sql' as greeting;"""
+sql"select 'helo from sql' as greeting;"
+Sql"select 'helo from sql' as greeting;"
+SQL"select 'helo from sql' as greeting;"
+#...........................................................................................................
+pgsql"""select 'helo from sql' as greeting;"""
+PGSQL"""select 'helo from sql' as greeting;"""
+pgsql"select 'helo from sql' as greeting;"
+PGSQL"select 'helo from sql' as greeting;"
+#...........................................................................................................
+plpgsql"""select 'helo from sql' as greeting;"""
+PLpgsql"""select 'helo from sql' as greeting;"""
+PLPGSQL"""select 'helo from sql' as greeting;"""
+plpgSQL"""select 'helo from sql' as greeting;"""
 plpgsql"select 'helo from sql' as greeting;"
+PLpgsql"select 'helo from sql' as greeting;"
+PLPGSQL"select 'helo from sql' as greeting;"
+plpgSQL"select 'helo from sql' as greeting;"
+
 
 select 'helo from sql' as greeting;
 

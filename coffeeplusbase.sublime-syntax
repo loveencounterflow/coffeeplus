@@ -34,7 +34,7 @@ contexts:
           captures:
             0: punctuation.definition.string.end.coffeeplusbase
           pop: true
-    - match: 'plpgsql"""'
+    - match: '(?i:plpgsql)"""'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
       embed: scope:source.plpgsql.postgres
@@ -79,7 +79,7 @@ contexts:
           scope: constant.character.escape.coffeeplusbase
         # - include: interpolated_coffeeplusbase
         - include: main
-    - match: 'plpgsql"'
+    - match: '(?i:plpgsql)"'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
       embed: scope:source.plpgsql.postgres
@@ -94,7 +94,7 @@ contexts:
           scope: constant.character.escape.coffeeplusbase
         # - include: interpolated_coffeeplusbase
         - include: main
-    - match: '(?<!pl)pgsql"""'
+    - match: '(?i:(?<!pl)pgsql)"""'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
       embed: scope:source.pgsql
@@ -109,7 +109,22 @@ contexts:
           scope: constant.character.escape.coffeeplusbase
         # - include: interpolated_coffeeplusbase
         - include: main
-    - match: '(?<!pg)sql"""'
+    - match: '(?i:(?<!pl)pgsql)"'
+      captures:
+        0: punctuation.definition.string.begin.coffeeplusbase
+      embed: scope:source.pgsql
+      escape: '"'
+      push:
+        - meta_scope: string.quoted.double.heredoc.coffeeplusbase
+        - match: '"'
+          captures:
+            0: punctuation.definition.string.end.coffeeplusbase
+          pop: true
+        - match: \\.
+          scope: constant.character.escape.coffeeplusbase
+        # - include: interpolated_coffeeplusbase
+        - include: main
+    - match: '(?i:(?<!pg)sql)"""'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
       # embed: scope:source.pgsql
@@ -118,6 +133,22 @@ contexts:
       push:
         - meta_scope: string.quoted.double.heredoc.coffeeplusbase
         - match: '"""'
+          captures:
+            0: punctuation.definition.string.end.coffeeplusbase
+          pop: true
+        - match: \\.
+          scope: constant.character.escape.coffeeplusbase
+        # - include: interpolated_coffeeplusbase
+        - include: main
+    - match: '(?i:(?<!pg)sql)"'
+      captures:
+        0: punctuation.definition.string.begin.coffeeplusbase
+      # embed: scope:source.pgsql
+      embed: scope:source.sql
+      escape: '"'
+      push:
+        - meta_scope: string.quoted.double.heredoc.coffeeplusbase
+        - match: '"'
           captures:
             0: punctuation.definition.string.end.coffeeplusbase
           pop: true
