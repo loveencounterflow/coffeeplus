@@ -74,5 +74,8 @@ Literals](https://coffeescript.org/#tagged-template-literals) embedded in
 * [ ] doc: how to add language definition
 * [ ] use inheritance so language region definitions get into separate file
 * [ ] provide ST3/4 package
+* [ ] implement CS templating syntax (`#{...}`) to embed CS in SQL template literals
+
+
 
 
