@@ -30,7 +30,7 @@ pattern = ///foo///
 pattern = ///foo///u
 
 #-----------------------------------------------------------------------------------------------------------
-xxx"""select 'helo from sql' as greeting;
+debug"""select 'helo from sql' as greeting;
 
 create function f() returns text language plpgsql as $$
   declare
