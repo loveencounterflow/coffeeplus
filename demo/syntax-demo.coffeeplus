@@ -1,6 +1,7 @@
 
 'use strict'
 
+
 class X extends Foo
   constructor: ->
     return undefined
@@ -29,12 +30,42 @@ pattern = ///foo///
 pattern = ///foo///u
 
 #-----------------------------------------------------------------------------------------------------------
-sql"""
-select 'helo from sql' as greeting;
+pgsql"""select 'helo from sql' as greeting;
+
+create function f() returns text language plpgsql as $$
+  declare
+    r text := '';
+  begin
+    return r;
+    end;
+  $$;
 """
 
+#-----------------------------------------------------------------------------------------------------------
+plpgsql"""select 'helo from sql' as greeting;
+
+create function f() returns text language plpgsql as $$
+  declare
+    r text := '';
+  begin
+    return r;
+    end;
+  $$;
+"""
+
+create function f() returns text language plpgsql as $$
+  declare
+    r text := '';
+  begin
+    return r;
+    end;
+  $$;
+
+
+#-----------------------------------------------------------------------------------------------------------
 select 'helo from sql' as greeting;
 sql"""select 'helo from sql' as greeting;"""
+"""select 'helo from sql' as greeting;"""
 
 
 #-----------------------------------------------------------------------------------------------------------
