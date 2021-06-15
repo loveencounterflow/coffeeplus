@@ -32,7 +32,17 @@ Literals](https://coffeescript.org/#tagged-template-literals) embedded in
   ```coffee
   sql = ( ... ) -> ...
   sql = SQL"select name, price from items order by price;"
+  ```
 
+* minimal tagged literal function:
+
+  ```coffee
+  SQL = ( parts, expressions... ) ->
+    R = parts[ 0 ]
+    for expression, idx in expressions
+      R += expression.toString() + parts[ idx + 1 ]
+      # R += "#{expression}#{parts[ idx + 1 ]}"
+    return R
   ```
 
 ## Installation
