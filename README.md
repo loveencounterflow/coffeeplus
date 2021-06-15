@@ -69,9 +69,10 @@ Literals](https://coffeescript.org/#tagged-template-literals) embedded in
 
 ## To Do
 
-* [ ] determine how to declare default syntax
-* [ ] doc: installation
+* [X] determine how to declare default syntax
+* [X] doc: installation
 * [ ] doc: how to add language definition
 * [ ] use inheritance so language region definitions get into separate file
+* [ ] provide ST3/4 package
 
 
