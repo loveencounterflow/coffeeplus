@@ -30,6 +30,18 @@ pattern = ///foo///
 pattern = ///foo///u
 
 #-----------------------------------------------------------------------------------------------------------
+xxx"""select 'helo from sql' as greeting;
+
+create function f() returns text language plpgsql as $$
+  declare
+    r text := '';
+  begin
+    return r;
+    end;
+  $$;
+"""
+
+#-----------------------------------------------------------------------------------------------------------
 pgsql"""select 'helo from sql' as greeting;
 
 create function f() returns text language plpgsql as $$
@@ -42,6 +54,10 @@ create function f() returns text language plpgsql as $$
 """
 
 #-----------------------------------------------------------------------------------------------------------
+plpgsql"select 'helo from sql' as greeting;"
+
+select 'helo from sql' as greeting;
+
 plpgsql"""select 'helo from sql' as greeting;
 
 create function f() returns text language plpgsql as $$
@@ -72,10 +88,20 @@ sql"""select 'helo from sql' as greeting;"""
 d = "some coffeescript #{class X extends Foo} embedded in string on same line"
 
 #-----------------------------------------------------------------------------------------------------------
-log( `helo from JS` );
+```log( `helo from JS` )```;
 ```
 const javascript = true;
+log( `helo from JS` );
+select 'helo from sql' as greeting;
 ```
+
+f = `x && y`
+
+
+f = ->
+  `const x = 10`
+  `const y = (function() { return 10; } )()`
+  return null
 
 f = ( field_name ) ->
   return sql"""select 42 as <var i=field_name>"""
