@@ -3,6 +3,7 @@
 # http://www.sublimetext.com/docs/syntax.html
 name: coffeeplusbase
 comment: 'coffeeplusbase Syntax: version 1'
+version: 2
 file_extensions:
   - coffee
   - Cakefile
@@ -33,6 +34,22 @@ contexts:
           captures:
             0: punctuation.definition.string.end.coffeeplusbase
           pop: true
+    - match: 'sql"""'
+      captures:
+        0: punctuation.definition.string.begin.coffeeplusbase
+      # embed: scope:source.pgsql
+      embed: scope:source.sql
+      escape: '"""'
+      push:
+        - meta_scope: string.quoted.double.heredoc.coffeeplusbase
+        - match: '"""'
+          captures:
+            0: punctuation.definition.string.end.coffeeplusbase
+          pop: true
+        - match: \\.
+          scope: constant.character.escape.coffeeplusbase
+        # - include: interpolated_coffeeplusbase
+        - include: main
     - match: '"""'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase

@@ -3,7 +3,11 @@
 # See http://www.sublimetext.com/docs/3/syntax.html
 file_extensions:
   - coffee
-scope: source.coffeeplus
+  - coffeeplus
+scope: source.coffee
+version: 2
+# extends: Packages/JavaScript/JavaScript.sublime-syntax
+extends: Packages/coffeeplus/coffeeplusbase.sublime-syntax
 
 variables:
   script_close_lookahead: (?i:(?=^\s*%%%))
@@ -24,7 +28,10 @@ contexts:
     - include: script-javascript
     - include: script-coffeescript
     - include: script-pgsql
+    - include: inside_pgsql
+    # - include: script-sql2
     # - include: script-type-decider
+
 
   source_debug:
     - match: 'debug'
@@ -101,23 +108,37 @@ contexts:
   #---------------------------------------------------------------------------------------------------------
   script-pgsql:
     # - match: (^\s*%%%.sql\s+[-=#]*$)
-    - match: '(sqlx""")'
+    - match: '(sql""")'
       captures:
         0: language-marker.coffeeplus
       scope: embed.pgsql.coffeeplus
       embed: scope:source.pgsql
       escape: '{{script_close_lookahead}}'
-  #     push: inside_pgsql
+      push: inside_pgsql
 
-  # inside_pgsql:
-  #   - match: '^%%%.+\s*$'
-  #     pop: true
+  inside_pgsql:
+    - match: '"""'
+      pop: true
 
   #   - match: (%%%.js)
   #     set:
   #       - script-javascript
   #       # - tag-generic-attribute-meta
   #       # - tag-generic-attribute-value
+
+  # sql2:
+  #   - match: 'sql"""'
+  #     captures:
+  #       0: punctuation.definition.string.begin.coffeeplusbase
+  #     push:
+  #       - meta_scope: string.quoted.double.heredoc.coffeeplusbase
+  #       - match: '"""'
+  #         captures:
+  #           0: punctuation.definition.string.end.coffeeplusbase
+  #         pop: true
+  #       - match: \\.
+  #         scope: constant.character.escape.coffeeplusbase
+  #       - include: interpolated_coffeeplusbase
 
 
   #---------------------------------------------------------------------------------------------------------
