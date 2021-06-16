@@ -85,6 +85,8 @@ SQL"select 'helo from #{if true then 'sql' else 42}' as greeting;"
 #...........................................................................................................
 pgsql"""select 'helo from #{if true then 'sql' else 42}' as greeting;"""
 PGSQL"""select 'helo from #{if true then 'sql' else 42}' as greeting;"""
+PGSQL"""
+select 'helo from #{if true then 'sql' else 42}' as greeting;"""
 pgsql"select 'helo from #{if true then 'sql' else 42}' as greeting;"
 PGSQL"select 'helo from #{if true then 'sql' else 42}' as greeting;"
 #...........................................................................................................
