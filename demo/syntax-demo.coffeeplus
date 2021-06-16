@@ -75,6 +75,31 @@ plpgsql"select 'helo from sql' as greeting;"
 PLpgsql"select 'helo from sql' as greeting;"
 PLPGSQL"select 'helo from sql' as greeting;"
 plpgSQL"select 'helo from sql' as greeting;"
+#-----------------------------------------------------------------------------------------------------------
+sql"""select 'helo from #{if true then 'sql' else 42}' as greeting;"""
+Sql"""select 'helo from #{if true then 'sql' else 42}' as greeting;"""
+SQL"""select 'helo from #{if true then 'sql' else 42}' as greeting;"""
+sql"select 'helo from #{if true then 'sql' else 42}' as greeting;"
+Sql"select 'helo from #{if true then 'sql' else 42}' as greeting;"
+SQL"select 'helo from #{if true then 'sql' else 42}' as greeting;"
+#...........................................................................................................
+pgsql"""select 'helo from #{if true then 'sql' else 42}' as greeting;"""
+PGSQL"""select 'helo from #{if true then 'sql' else 42}' as greeting;"""
+pgsql"select 'helo from #{if true then 'sql' else 42}' as greeting;"
+PGSQL"select 'helo from #{if true then 'sql' else 42}' as greeting;"
+#...........................................................................................................
+plpgsql"""select 'helo from #{if true then 'sql' else 42}' as greeting;"""
+PLpgsql"""select 'helo from #{if true then 'sql' else 42}' as greeting;"""
+PLPGSQL"""select 'helo from #{if true then 'sql' else 42}' as greeting;"""
+plpgSQL"""select 'helo from #{if true then 'sql' else 42}' as greeting;"""
+plpgsql"select 'helo from #{if true then 'sql' else 42}' as greeting;"
+PLpgsql"select 'helo from #{if true then 'sql' else 42}' as greeting;"
+PLPGSQL"select 'helo from #{if true then 'sql' else 42}' as greeting;"
+plpgSQL"select 'helo from #{if true then 'sql' else 42}' as greeting;"
+
+if true then 'sql' else 42
+#{if true then 'sql' else 42}
+`if (#{if true then 'sql' else 42}) { return function f() {}; }`
 
 
 select 'helo from sql' as greeting;

@@ -25,6 +25,9 @@ contexts:
       captures:
         1: keyword.operator.new.coffeeplusbase
         2: support.class.coffeeplusbase
+
+
+    ########################################################################################################
     - match: "'''"
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
@@ -34,21 +37,6 @@ contexts:
           captures:
             0: punctuation.definition.string.end.coffeeplusbase
           pop: true
-    - match: '(?i:plpgsql)"""'
-      captures:
-        0: punctuation.definition.string.begin.coffeeplusbase
-      embed: scope:source.plpgsql.postgres
-      escape: '"""'
-      push:
-        - meta_scope: string.quoted.double.heredoc.coffeeplusbase
-        - match: '"""'
-          captures:
-            0: punctuation.definition.string.end.coffeeplusbase
-          pop: true
-        - match: \\.
-          scope: constant.character.escape.coffeeplusbase
-        # - include: interpolated_coffeeplusbase
-        - include: main
     - match: '```'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
@@ -79,6 +67,24 @@ contexts:
           scope: constant.character.escape.coffeeplusbase
         # - include: interpolated_coffeeplusbase
         - include: main
+
+    #-------------------------------------------------------------------------------------------------------
+    - match: '(?i:plpgsql)"""'
+      captures:
+        0: punctuation.definition.string.begin.coffeeplusbase
+      embed: scope:source.plpgsql.postgres
+      escape: '"""'
+      push:
+        - meta_scope: string.quoted.double.heredoc.coffeeplusbase
+        - match: '"""'
+          captures:
+            0: punctuation.definition.string.end.coffeeplusbase
+          pop: true
+        - match: \\.
+          scope: constant.character.escape.coffeeplusbase
+        # - include: interpolated_coffeeplusbase
+        - include: main
+    #-------------------------------------------------------------------------------------------------------
     - match: '(?i:plpgsql)"'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
@@ -94,6 +100,8 @@ contexts:
           scope: constant.character.escape.coffeeplusbase
         # - include: interpolated_coffeeplusbase
         - include: main
+
+    #-------------------------------------------------------------------------------------------------------
     - match: '(?i:(?<!pl)pgsql)"""'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
@@ -109,6 +117,7 @@ contexts:
           scope: constant.character.escape.coffeeplusbase
         # - include: interpolated_coffeeplusbase
         - include: main
+    #-------------------------------------------------------------------------------------------------------
     - match: '(?i:(?<!pl)pgsql)"'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
@@ -124,6 +133,8 @@ contexts:
           scope: constant.character.escape.coffeeplusbase
         # - include: interpolated_coffeeplusbase
         - include: main
+
+    #-------------------------------------------------------------------------------------------------------
     - match: '(?i:(?<!pg)sql)"""'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
@@ -140,6 +151,7 @@ contexts:
           scope: constant.character.escape.coffeeplusbase
         # - include: interpolated_coffeeplusbase
         - include: main
+    #-------------------------------------------------------------------------------------------------------
     - match: '(?i:(?<!pg)sql)"'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
@@ -156,6 +168,9 @@ contexts:
           scope: constant.character.escape.coffeeplusbase
         # - include: interpolated_coffeeplusbase
         - include: main
+
+
+    ########################################################################################################
     - match: '"""'
       captures:
         0: punctuation.definition.string.begin.coffeeplusbase
