@@ -65,6 +65,10 @@ Literals](https://coffeescript.org/#tagged-template-literals) embedded in
 * file `coffeeplus/coffeeplus-monokai-neue.sublime-color-scheme` is loaded implicitly
 * it updates the color theme with backgrounds for matched regions
 * adapt backgrounds to your liking
+* file `coffeeplus/coffeeplusbase.tmPreferences` is also loaded implicitly, it would [appear to be still
+  needed](https://forum.sublimetext.com/t/toggle-comment-with-a-custom-sublime-syntax/18789) in order for
+  the `toggle comment` functionality (which seems to work via the comman palette only, not the keyboard
+  shortcut)
 
 
 ## To Do
@@ -75,7 +79,7 @@ Literals](https://coffeescript.org/#tagged-template-literals) embedded in
 * [ ] use inheritance so language region definitions get into separate file
 * [ ] provide ST3/4 package
 * [ ] implement CS templating syntax (`#{...}`) to embed CS in SQL template literals
-
+* [ ] fix comment toggling via keyboard shortcut
 
 
 
