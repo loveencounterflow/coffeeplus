@@ -59,7 +59,8 @@ Literals](https://coffeescript.org/#tagged-template-literals) embedded in
 * no package / package control provided so far
 * manual installation only
   * git clone
-  * symlink from package directory to cloned repo
+  * symlink from package directory to <del>cloned repo</del> <ins>to the `coffeeplus`, `SQL` subdirectories;
+    if there is a conflict with an installed `SQL` package, remove that one first</ins>
   * add `"color_scheme": "Packages/coffeeplus/coffeeplus-monokai-neue.tmTheme"` in
     `~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings`
 * file `coffeeplus/coffeeplus-monokai-neue.sublime-color-scheme` is loaded implicitly
@@ -79,6 +80,6 @@ Literals](https://coffeescript.org/#tagged-template-literals) embedded in
 * [ ] provide ST3/4 package
 * [ ] implement CS templating syntax (`#{...}`) to embed CS in SQL template literals
 * [X] fix comment toggling via keyboard shortcut
-
+* [X] remove `#` (hash/number-sign) from the list of recognized SQL comments
 
 
