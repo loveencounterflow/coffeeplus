@@ -5,6 +5,9 @@
 	},
 	"globals": {
 		// "foreground": "var(green)",
+		"bracket_contents_options": "none",
+        "brackets_options": "none",
+        "tags_options": "none"
 	},
 	"rules": [
 		{
