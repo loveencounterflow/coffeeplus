@@ -11,6 +11,11 @@
 	},
 	"rules": [
 		{
+			"scope": "text.html.markdown markup.list.unnumbered.markdown markup.raw.code-fence.markdown-gfm",
+			"foreground": "#aa8800",
+			"background": "#110000",
+		},
+		{
 			"scope": "string.quoted.double.icql",
 			"foreground": "#ff0000",
 		},
