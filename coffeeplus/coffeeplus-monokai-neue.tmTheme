@@ -36,7 +36,7 @@ See LICENSE-MIT and README.md files in project root diretory.
         <key>activeGuide</key>
         <string>#7fb11b</string>
         <key>background</key>
-        <string>#252526</string>
+        <string>#181818</string>
         <key>bracketContentsForeground</key>
         <string>#f8f8f2a5</string>
         <key>bracketContentsOptions</key>
@@ -56,7 +56,7 @@ See LICENSE-MIT and README.md files in project root diretory.
         <key>invisibles</key>
         <string>#3b3a32</string>
         <key>lineHighlight</key>
-        <string>#333333</string>
+        <string>#0008</string>
         <key>selection</key>
         <string>#444444</string>
         <key>selectionBorder</key>
