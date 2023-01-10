@@ -7,6 +7,8 @@ class X extends Foo
     return undefined
 f = ( a, b ) -> a * b
 
+html"<b>helo world</b>"
+html"""<b>helo world</b>"""
 
 sql"""
 select 'helo world';
