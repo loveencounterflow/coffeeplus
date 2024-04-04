@@ -169,6 +169,41 @@ contexts:
         # - include: interpolated_coffeeplusbase
         - include: main
 
+    #-------------------------------------------------------------------------------------------------------
+    - match: '(?i:html)"""'
+      captures:
+        0: punctuation.definition.string.begin.coffeeplusbase
+      # embed: scope:source.pgsql
+      embed: scope:text.html.basic
+      escape: '"""'
+      push:
+        - meta_scope: string.quoted.double.heredoc.coffeeplusbase
+        - match: '"""'
+          captures:
+            0: punctuation.definition.string.end.coffeeplusbase
+          pop: true
+        - match: \\.
+          scope: constant.character.escape.coffeeplusbase
+        # - include: interpolated_coffeeplusbase
+        - include: main
+    #-------------------------------------------------------------------------------------------------------
+    - match: '(?i:html)"'
+      captures:
+        0: punctuation.definition.string.begin.coffeeplusbase
+      # embed: scope:source.pgsql
+      embed: scope:text.html.basic
+      escape: '"'
+      push:
+        - meta_scope: string.quoted.double.heredoc.coffeeplusbase
+        - match: '"'
+          captures:
+            0: punctuation.definition.string.end.coffeeplusbase
+          pop: true
+        - match: \\.
+          scope: constant.character.escape.coffeeplusbase
+        # - include: interpolated_coffeeplusbase
+        - include: main
+
 
     ########################################################################################################
     - match: '"""'
